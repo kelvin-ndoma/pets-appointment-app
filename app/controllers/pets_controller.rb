@@ -5,7 +5,7 @@ class PetsController < ApplicationController
         render json: pets, status: :ok
     end
 
-    def  pet
+    def  show
         pet = find_pet
         if pet
             render json: pet, status: :ok

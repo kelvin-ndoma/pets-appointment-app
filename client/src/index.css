@@ -1,13 +1,133 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: black;
+  
+
+  }
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 3px solid #28d330;
+  /* position: fixed; */
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  height: 50px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+header a, header button {
+  font-size: 1rem;
+  background-color: rgb(157, 243, 99);
+  border: 2px solid rgb(22, 22, 224);
+  margin: 2rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: black;
+  width: 2px;
+  cursor: pointer;
+  border-radius: 77px; 
+}
+
+.header-btn:hover {
+  background-color: blue;
+  color: white;
+}
+
+.header-btn-logout {
+  padding-right: 60px;
+  color: hsl(7, 100%, 50%);
+}
+
+.btn-login, .btn-signup, .bt-addDog{
+  margin: 10px;
+  background-color: rgb(67, 168, 41);
+  border-radius: 5px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.nav {
+  background-color: rgb(159, 248, 171);
+
+  
+}
+
+form {
+  border: 2px solid #28d330;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  padding: 2rem 2rem;
+  font-size: 14px;
+  background-color: #f6fffd;
+}
+
+.card {
+    margin: 1rem;
+    float: left;
+    width: 33.33%;
+    padding: 5px;    
+    }
+
+.card img {
+    width: 100%;
+    }
+    
+.card button {
+    font-size: 1rem;
+    background-color: rgb(157, 243, 99);
+    border: 2px solid rgb(22, 22, 224);
+    margin: 0.5rem;
+    padding: 0.5rem;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    border-radius: 77px;
+    }
+    
+  @media (min-width: 7px) {
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    }
+    
+  @media (max-width: 500px) {
+      .cards {
+        width: 100%;
+    }}
+    
+  .card {
+    width: calc(100% - 2rem);
+    }}
+    
+  @media (min-width: 1024px) {
+  .card {
+    width: calc(100% - 2rem);
+    }}
+    
+  @media (min-width: 1200px) {
+  .card {
+    width: calc(20% - 2rem);
+    }}
+
+  .card {
+  margin: 1rem;
+    }
+
+  button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px 10px;
+  margin: 1px 0;
+  border: none;
+  cursor: pointer;
+  width: auto;
+   }
+
+img{
+  height: auto;
+  max-width: 100%;
+  display: block;
 }

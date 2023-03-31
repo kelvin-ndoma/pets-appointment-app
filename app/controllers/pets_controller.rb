@@ -1,44 +1,61 @@
 class PetsController < ApplicationController
-    wrap_parameters format: []
-    def index
-        pets = Pet.all
-        render json: pets, status: :ok
-    end
+  before_action :authorize
 
-    def  show
-        pet = find_pet
-        if pet
-            render json: pet, status: :ok
-        else
-            render json: { error: "Pet not found" }, status: :not_found
-
-        end
+  def index
+    @pets = Pet.includes(:appointments)
+    render json: @pets.as_json(
+      include: { appointments: { except: [:id, :created_at, :updated_at] } },
+      except: [:created_at, :updated_at]
+    )
+  end
+  
+  def show
+    pet = find_pet
+    if pet && pet.user == current_user
+      appointments = pet.appointments
+      render json: { pet: pet, appointments: appointments }, status: :ok
+    else
+      render json: { error: "Pet not found" }, status: :not_found
     end
+  end
+  
 
-    def create
-        pet = Pet.create!(pet_params)
-        render json: pet, status: :created
+  def create
+    pet = current_user.pets.create(pet_params)
+    if pet.persisted?
+      render json: pet, status: :created
+    else
+      render json: { errors: pet.errors.full_messages }, status: :unprocessable_entity
     end
+  end
 
-    def updated
-        pet = find_pet
-        pet.update(pet_params)
-        render json: pet, status: :accepted
+  def update
+    pet = find_pet
+    if pet && pet.user == current_user
+      pet.update(pet_params)
+      render json: pet, status: :accepted
+    else
+      render json: { error: "Pet not found or unauthorized" }, status: :not_found
     end
+  end
 
-    def destroy
-        pet = find_pet
-        head :no_content
+  def destroy
+    pet = find_pet
+    if pet && pet.user == current_user
+      pet.destroy
+      head :no_content
+    else
+      render json: { error: "Pet not found or unauthorized" }, status: :not_found
     end
+  end
 
-    
-    private
-    def pet_params
-        params.permit(:name, :breed, :image, :medical_history, :age, :description, :user_id)
-    end
-    def find_pet
-        Pet.find_by(id: params[:id])
-    end
+  private
 
-    
+  def pet_params
+    params.require(:pet).permit(:name, :breed, :image, :medical_history, :age, :description)
+  end
+
+  def find_pet
+    Pet.find_by(id: params[:id])
+  end
 end

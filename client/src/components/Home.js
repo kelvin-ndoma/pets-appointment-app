@@ -1,21 +1,25 @@
 import React from 'react';
-import PetPage from './PetPage'
+import "./Home.css"
 
-function Home({ user }) {
-    if (user) {
+function Home() {
+ 
+    return (
       
-        return (
-          <>
-          <div className= "content">
-            <h4>Karibu, { user.username }!</h4>
-            <PetPage />
-            </div>      
-          </>
-        )
-        
-      } else {
-        return <h2>Please log in to continue...</h2>;
-      }
-    }
+      <>
+        <section className='home'>
+          <div className='home-content'>
+
+            <h1 id='karibu'>Welcome to PetPal.</h1><br/>
+            <p id='para'> We just dont treat animals</p>
+            <p id='para'>We care for your Pet</p><br/>
+            <br/>
+            <a className="btn btn-outline-primary btn-lg" href="/login" role="button">Book your appointment</a>
+          </div>
+        </section>
+        </>
+      
+    );
+  }
+
 
 export default Home;

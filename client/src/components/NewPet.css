@@ -1,0 +1,40 @@
+.addpet-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.addpet-form {
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 4px;
+  box-shadow: 0px 0px 10px #cccccc;
+}
+
+.addpet-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.addpet-input-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.addpet-input-group input {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.addpet-btn {
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.addpet-btn:hover {
+  background-color: #0069d9;
+}

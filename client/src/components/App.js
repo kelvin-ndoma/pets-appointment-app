@@ -1,18 +1,18 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import NavBar from "./NavBar";
 import Home from "./Home";
 import Login from "./Login";
 import SignUp from "./SignUp";
+import NavBar from "./NavBar";
+import PetPage from "./PetPage";
 
 
 
 
 function App() {
-  const [user, setUser] = useState(null); 
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
-
     fetch("/me").then((r) => {
       if (r.ok) {
         r.json().then((user) => setUser(user));
@@ -21,38 +21,23 @@ function App() {
   }, []);
 
   return (
-    <>
-    <NavBar/>
-    <NavBar user={user} setUser={setUser} />
+    <BrowserRouter>
+      <NavBar user={user} setUser={setUser} />
+      <div className="main">
+        <Routes>
+          <Route path="/" element={user ? <Home user={user} /> : <Home />} />
+          <Route path="/signup" element={<SignUp setUser={setUser} />} />
+          <Route path="/login" element={<Login setUser={setUser} />} />
+          <Route path="/petpage" element={<PetPage setUser={setUser} />} />
+          <Route path="/allpets" element={<PetPage/>} />
+          
+         
 
-    <div className= "main">
-      {user?(
-        <>
-        <Routes>
-              <Route strict path="/">
-                <Home exact user={user}/>
-              </Route>                          
-            </Routes>
-        </>
-      ):(
-        <Routes>
-            <Route path="/signup">
-              <SignUp setUser={setUser} />
-            </Route>
-            <Route path="/login">
-              <Login setUser={setUser} />
-            </Route>
-            <Route strict path="/">
-                <Home />
-            </Route>
-          </Routes>
-      )}
-    </div>
-   
-    </>
-  
+
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
-  
 }
 
 export default App;

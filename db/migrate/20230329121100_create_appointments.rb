@@ -4,7 +4,7 @@ class CreateAppointments < ActiveRecord::Migration[7.0]
       t.integer :pet_id
       t.integer :user_id
       t.string :appointment_reason
-      t.integer :start_time
+      t.datetime :start_time
 
       t.timestamps
     end

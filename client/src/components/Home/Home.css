@@ -1,0 +1,53 @@
+.home {
+  height: 100vh;
+  background-image: url(https://img.freepik.com/free-photo/adorable-brown-white-basenji-dog-smiling-giving-high-five-isolated-white_346278-1657.jpg?w=740&t=st=1680340698~exp=1680341298~hmac=4aede7540d1995e8ca1ef41fe637139a52b8e6c92d11a9ced78b2975dd975167);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  display: flex;
+  align-items: center;
+}
+
+.home-content {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  float: right;
+  padding-right: 50px; /* add padding to the right side of the container */
+}
+
+#karibu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* align the container to the right side */
+  padding-right: 50px; /* add padding to the right side of the container */
+}
+
+#karibu h1{
+  font-size: 4rem;
+  font-weight: bold;
+  color: #333;
+  text-align: right; /* align the heading to the right side */
+  margin: 0; /* remove any margin */
+}
+
+#para {
+  font-size: 2rem;
+  color: #555;
+  margin-bottom: 1rem;
+  text-align: right; /* align the paragraph to the right side */
+}
+
+.btn {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  background-color: #0a60ff;
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+  align-self: flex-end; /* align the button to the right side */
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}

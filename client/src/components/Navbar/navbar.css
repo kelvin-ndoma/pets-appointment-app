@@ -1,0 +1,118 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%,43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --whiteColor: hsl(0, 0%, 100%);
+  --blacklColor: hsl(201, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240,240,246);
+  --cardBG: rgb(225, 225, 235);
+}
+
+.navBarSection {
+  display: flex;
+  justify-content: center;
+}
+
+.header {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  background: var(--whiteColorDeam);
+  width: 100%;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.logoDiv {
+  width: 33%;
+  text-align: left;
+}
+
+.logo {
+  color: var(--blacklColor);
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
+.navBar {
+  width: 67%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.navLists {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  list-style: none;
+  margin: 0 1rem;
+}
+
+.navLink {
+  color: var(--blacklColor);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.btn {
+
+  background: var(--gradientColor);
+  border-radius: 3rem;
+  
+  outline: none;
+  cursor: pointer;
+
+  
+  color: var(--blacklColor);
+  border: none;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+ 
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: var(--blacklColor);
+  color: var(--whiteColor);
+  transform: translateY(-3px);
+  box-shadow: 0 2px 4px rgba(2, 15, 29, 0.15);
+}
+
+@media screen and (max-width: 768px){
+  .navBar{
+    position: absolute;
+    background: var(--whiteColorDeam);
+    height: max-content;
+    width: 80%;
+    border-radius: 1rem;
+    top: 6rem;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 2000;
+    box-shadow: 0 2px 4px rgba(2, 15, 29, 0.904);
+    transition: .3s ease-in-out;
+  }
+
+  .navLists {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 1rem 0;
+  }
+
+  .navItem {
+    margin: 0.5rem 0;
+  }
+}

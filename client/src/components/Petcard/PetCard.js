@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Update from './Update';
+import Update from '../Update/Update';
 
 import './PetCard.css';
 import { Link } from 'react-router-dom';

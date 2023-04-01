@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :authorize
+  before_action :authorize, except: [:index, :show]
 
   def index
     @pets = Pet.includes(:appointments)
@@ -11,8 +11,8 @@ class PetsController < ApplicationController
   
   def show
     pet = find_pet
-    if pet && pet.user == current_user
-      appointments = pet.appointments
+    if pet
+      appointments = pet.appointments.where(user: current_user) if current_user
       render json: { pet: pet, appointments: appointments }, status: :ok
     else
       render json: { error: "Pet not found" }, status: :not_found

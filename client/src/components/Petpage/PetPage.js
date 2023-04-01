@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import NewPet from './NewPet';
+import NewPet from '../Newpet/NewPet';
 import PetList from './PetList';
 import './PetPage.css';
 

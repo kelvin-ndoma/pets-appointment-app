@@ -1,10 +1,10 @@
 class Appointment < ApplicationRecord
-    belongs_to :pet
     belongs_to :user
-  
-    validates :start_time, presence: true
-    validates :appointment_reason, presence: true
-    validates :pet, presence: true
-    validates :user, presence: true
+    belongs_to :pet
     
-end
+    validates :appointment_reason, presence: true
+    validates :start_time, presence: true
+    validates :user_id, presence: true
+    validates :pet_id, presence: true
+  end
+  

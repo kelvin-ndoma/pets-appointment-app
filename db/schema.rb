@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_30_095031) do
   create_table "appointments", force: :cascade do |t|
-    t.integer "pet_id"
-    t.integer "user_id"
     t.string "appointment_reason"
     t.datetime "start_time"
+    t.integer "user_id"
+    t.integer "pet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "end_time"
@@ -29,7 +29,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_30_095031) do
     t.integer "age"
     t.string "image"
     t.string "description"
-    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

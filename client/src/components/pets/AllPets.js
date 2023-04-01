@@ -6,7 +6,7 @@ function AllPets() {
   useEffect(() => {
     fetch("/pets")
       .then((res) => res.json())
-      .then((data) => {
+      .then((data)=> {
         setPets(data);
       })
       .catch((err) => {

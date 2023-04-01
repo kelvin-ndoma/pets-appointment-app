@@ -49,12 +49,12 @@ import Home from './Home/Home'
 import Main from './Main/Main'
 import NavBar from './Navbar/NavBar'
 
+
 const App = () => {
   return (
 
     <div>
-
-      <NavBar/>
+     <NavBar/>
       <Home/>
       <br/>
       <Main/>

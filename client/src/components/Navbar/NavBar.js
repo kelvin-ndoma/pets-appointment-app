@@ -121,46 +121,62 @@
 // }
 
 // export default NavBar;
-import React from 'react'
-import "./navbar.css"
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+import './navbar.css';
+
+const NavBar = ({ handleLogout }) => {
+
   return (
     <section className='navBarSection'>
       <header className='header flex'>
-
         <div className='logoDiv'>
-          <a href='/' className='logo flex'>
+          <Link to='/' className='logo flex'>
             <h1>PetPal</h1>
-          </a>
+          </Link>
         </div>
-
         <div className='navBar'>
           <ul className='navLists flex'>
             <li className='navItem'>
-              <a href='/' className='navLink'>Home</a>
+              <Link to='/' className='navLink'>
+                Home
+              </Link>
             </li>
             <li className='navItem'>
-              <a href='allpets' className='navLink'> All Pets</a>
+              <Link to='/allpets' className='navLink'>
+                All Pets
+              </Link>
             </li>
             <li className='navItem'>
-              <a href='#' className='navLink'>Your Pets</a>
+              <Link to='/yourpet' className='navLink'>
+                Your Pets
+              </Link>
             </li>
             <li className='navItem'>
-              <a href='#' className='navLink'>Signin</a>
+              <Link to='/signup' className='navLink'>
+                Signin
+              </Link>
             </li>
             <li className='navItem'>
-              <a href='#' className='navLink'>Login</a>
+              <Link to='/login' className='navLink'>
+                Login
+              </Link>
             </li>
-            <button className='btn'><a href='#'>Logout</a></button>
+            <li className='navItem'>
+              <button className='btn' type='button' onClick={handleLogout}>
+                Logout
+              </button>
+            </li>
           </ul>
-         
         </div>
       </header>
-
-
     </section>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
+
+
+
+

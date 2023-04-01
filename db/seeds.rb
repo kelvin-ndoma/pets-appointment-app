@@ -1,12 +1,11 @@
 # Create some users
-user1 = User.create!(username: "johndoe", email: "johndoe@example.com", password: "password")
-user2 = User.create!(username: "janedoe", email: "janedoe@example.com", password: "password")
+user1 = User.create(username: "johndoe", email: "johndoe@example.com", password: "password")
+user2 = User.create(username: "janedoe", email: "janedoe@example.com", password: "password")
 
 # Create some pets
-pet1 = user1.pets.create!(name: "Fluffy", breed: "Persian", medical_history: "None", age: 2, image: "https://www.example.com/fluffy.jpg", description: "A cute and cuddly Persian cat")
-pet2 = user2.pets.create!(name: "Rex", breed: "German Shepherd", medical_history: "Allergies", age: 3, image: "https://www.example.com/rex.jpg", description: "A loyal and protective German Shepherd")
+pet1 = Pet.create(name: "Fluffy", breed: "Poodle", medical_history: "None", age: 3, image: "https://i.imgur.com/U3ZYNxl.jpg", description: "A cute little dog")
+pet2 = Pet.create(name: "Whiskers", breed: "Siamese", medical_history: "Allergic to fish", age: 2, image: "https://i.imgur.com/GhT8ZL1.jpg", description: "A playful cat")
 
-# Create appointments for each pet
-appointment1 = pet1.appointments.create!(user: user1, appointment_reason: "dental cleaning", start_time: DateTime.now + 1.week)
-appointment2 = pet2.appointments.create!(user: user1, appointment_reason: "vaccination", start_time: DateTime.now + 2.weeks)
-appointment3 = pet1.appointments.create!(user: user2, appointment_reason: "general checkup", start_time: DateTime.now + 3.weeks)
+# Create some appointments
+appointment1 = Appointment.create(appointment_reason: "Checkup", start_time: Time.now, end_time: Time.now + 1.hour, user_id: user1.id, pet_id: pet1.id, notes: "All good")
+appointment2 = Appointment.create(appointment_reason: "Vaccination", start_time: Time.now + 1.day, end_time: Time.now + 1.day + 1.hour, user_id: user2.id, pet_id: pet2.id, notes: "Bring shot records")

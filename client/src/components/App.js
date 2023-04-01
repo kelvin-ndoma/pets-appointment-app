@@ -1,66 +1,80 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import React, { useEffect, useState } from "react";
-// import Home from "./Home";
-// import Login from "./Login";
-// import SignUp from "./SignUp";
-// import NavBar from "./NavBar";
-// import PetPage from "./PetPage";
-// import "./App.css"
 
 
+import "./App.css";
 
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import Home from "./Home/Home";
+import PetList from "./Main/PetList";
+import PostPet from "./PostPet/PostPet";
+import PetDetails from "./BlogDetails";
+import Edit from "./Edit"
+import Login from "./Login/Login"
+import SignUp from "./signup/SignUp"
 
+function App() {
+  const navStyle = {
+    display: "inline-block",
+    margin: "0 20px",
+  };
 
-// function App() {
-//   const [user, setUser] = useState(null);
+  const navHoverStyle = {
+    color: "white",
+    backgroundColor: "black",
+    padding: "5px 10px",
+    borderRadius: "5px",
+    transition: "all 0.3s ease",
+  };
 
-//   useEffect(() => {
-//     fetch("/me").then((r) => {
-//       if (r.ok) {
-//         r.json().then((user) => setUser(user));
-//       }
-//     });
-//   }, []);
-
-//   return (
-//     <BrowserRouter>
-//       <NavBar user={user} setUser={setUser} />
-//       <div className="main">
-//         <Routes>
-//           <Route path="/" element={user ? <Home user={user} /> : <Home />} />
-//           <Route path="/signup" element={<SignUp setUser={setUser} />} />
-//           <Route path="/login" element={<Login setUser={setUser} />} />
-//           <Route path="/petpage" element={<PetPage setUser={setUser} />} />
-          
-//         </Routes>
-        
-//       </div>
-      
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-import React from 'react'
-import "./App.css"
-
-// import Footer from './Footer/Footer'
-import Home from './Home/Home'
-import Main from './Main/Main'
-import NavBar from './Navbar/NavBar'
-
-
-const App = () => {
   return (
-
-    <div>
-     <NavBar/>
-      <Home/>
-      <br/>
-      <Main/>
-      {/* <Footer/> */}
+    <div className="App">
+      <BrowserRouter>
+        <header>
+          <nav className="navbar">
+            <Link to="/" className="navbar-brand">
+              <h1>Developers Blog App</h1>
+            </Link>
+            <div className="nav-links">
+              <Link to="/" style={navStyle} activeStyle={navHoverStyle}>
+                Home
+              </Link>
+              <Link to="/login" style={navStyle} activeStyle={navHoverStyle}>
+                Login
+              </Link>
+              <Link to="/signup" style={navStyle} activeStyle={navHoverStyle}>
+                SignUp
+              </Link>
+              <Link to="/details" style={navStyle} activeStyle={navHoverStyle}>
+                About
+              </Link>
+              <Link
+                to="/petlist"
+                style={navStyle}
+                activeStyle={navHoverStyle}
+              >
+                PetList
+              </Link>
+            </div>
+          </nav>
+        </header>
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          
+            <Route path="/petlist" element={<PetList />} />
+            <Route path="/pet/post" element={<PostPet />} />
+            <Route path="/details" element={<PetDetails />} />
+            <Route path="/pet/:empid" element={<Edit />} />
+            <Route path="/login" element={<Login/>} />
+            <Route path="/signup" element = {<SignUp/>}/>
+          </Routes>
+        </main>
+      </BrowserRouter>
+  
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
+
+
+

@@ -122,46 +122,44 @@
 
 // export default NavBar;
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import './navbar.css';
 
 const NavBar = ({ handleLogout }) => {
-
   return (
     <section className='navBarSection'>
       <header className='header flex'>
         <div className='logoDiv'>
-          <Link to='/' className='logo flex'>
+          <a href='/' className='logo flex'>
             <h1>PetPal</h1>
-          </Link>
+          </a>
         </div>
         <div className='navBar'>
           <ul className='navLists flex'>
             <li className='navItem'>
-              <Link to='/' className='navLink'>
+              <a href='/' className='navLink'>
                 Home
-              </Link>
+              </a>
             </li>
             <li className='navItem'>
-              <Link to='/allpets' className='navLink'>
+              <a href='/allpets' className='navLink'>
                 All Pets
-              </Link>
+              </a>
             </li>
             <li className='navItem'>
-              <Link to='/yourpet' className='navLink'>
+              <a href='/yourpet' className='navLink'>
                 Your Pets
-              </Link>
+              </a>
             </li>
             <li className='navItem'>
-              <Link to='/signup' className='navLink'>
+              <a href='/signup' className='navLink'>
                 Signin
-              </Link>
+              </a>
             </li>
             <li className='navItem'>
-              <Link to='/login' className='navLink'>
+              <a href='/login' className='navLink'>
                 Login
-              </Link>
+              </a>
             </li>
             <li className='navItem'>
               <button className='btn' type='button' onClick={handleLogout}>
@@ -176,6 +174,7 @@ const NavBar = ({ handleLogout }) => {
 };
 
 export default NavBar;
+
 
 
 

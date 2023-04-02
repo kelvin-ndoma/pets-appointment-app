@@ -1,5 +1,5 @@
 
-
+import "./Main.css"
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -46,7 +46,7 @@ function PetList() {
       <div className="card">
         <div className="card-title">
           <h2>Pets List</h2>
-          <Link to="/pets" className="cta-button">
+          <Link to="/pets" className="button">
             Add a pet
           </Link>
         </div>
@@ -55,13 +55,13 @@ function PetList() {
             {petdata &&
               petdata.map((pet) => (
                 <div className="col" key={pet.id}>
-                  <div className="card h-100" style={{ backgroundColor: "#FBA633" }}>
-                    <div className="card-body">
+                  <div className="card h-100" >
+                    <div className="cardssss">
                       <img src={pet.image} />
                       <p className="card-text">{pet.name}</p>
                       <p className="card-text">Medical History: {pet.medical_history}</p>
                       <p className="card-text">Age: {pet.age}</p>
-                      <h1 className="card-body">description: {pet.description}</h1>
+                      <p className="card-body">Description: {pet.description}</p>
                       <div className="d-flex justify-content-center">
                         <div className="btn-group">
                           <button
@@ -69,7 +69,7 @@ function PetList() {
                               LoadDetail(pet.id);
                             }}
                             type="button"
-                            className="btn btn-sm btn-primary me-2"
+                            className="btn"
                           >
                             Details
                           </button>
@@ -78,7 +78,7 @@ function PetList() {
                               LoadEdit(pet.id);
                             }}
                             type="button"
-                            className="btn btn-sm btn-secondary me-2"
+                            className="btn"
                           >
                             Edit
                           </button>
@@ -87,7 +87,7 @@ function PetList() {
                               Removefunction(pet.id);
                             }}
                             type="button"
-                            className="btn btn-sm btn-danger"
+                            className="btn"
                           >
                             Delete
                           </button>

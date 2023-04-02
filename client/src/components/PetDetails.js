@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+// import AddAppointment from "./AddAppointment";
+import "./PetDetails.css"
 
 
 function PetDetails() {
@@ -41,64 +43,47 @@ function PetDetails() {
       });
   };
   return (
-    <div className="container mt-5">
-      <div className="card p-3">
-        <div className="card-title">
-          <h2>Pet Details</h2>
+    <div className="petd-container">
+      <div className="carded">
+        <div className="card-header">
+          <h2 className="title-pet">Pet Details</h2>
         </div>
         <div className="card-body">
           {Object.keys(petdata).length > 0 ? (
-            <> 
-             <img src={petdata.image} />
-              <h3>name: {petdata.name}</h3>
-              <h4>Description: {petdata.description}</h4>
-              <p>age: {petdata.age}</p>
-              <p>breed: {petdata.breed}</p>
-              <p>medical_history: {petdata.medical_history}</p>
-              <div>
-                <h4>Appointments:</h4>
-                {appointments.length > 0 ? (
-                  appointments.map((appointment) => {
-                    const user = users.find(
-                      (user) => user.id === appointment.user_id
-                    );
-                    return (
-                      <div className="card my-3" key={appointment.id}>
-                        <div className="card-body">
-                          <h5 className="card-title">
-                            {appointment.appointment_reason}
-                          </h5>
-                          <p className="card-text">{appointment.notes}</p>
-                          <p className="card-text">
-                            By: {appointment.start_time}
-                          </p>
-                          <p className="card-text">
-                            end: {appointment.end_time}
-                          </p>
-                          <button
-                            className="btn btn-danger"
-                            onClick={() => handleDelete(appointment.id)}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })
-                ) : (
-                  <p>No appointment yet.</p>
-                )}
-                <div className="text-center">
-                  {/* <AddAppointment
-                    petId={petdata.id}
-                    setAppointments={setAppointments}
-                    appointments={appointments}
-                    users={users}
-                  /> */}
-                  <Link to="/petlist" className="btn btn-primary">
-                    Back to pets
-                  </Link>
-                </div>
+            <>
+              <img src={petdata.image} alt={petdata.name} className="body-rounded" />
+              <h3 className="mb-3">Name: {petdata.name}</h3>
+              <p className="mb-3">Age: {petdata.age}</p>
+              <p className="mb-3">Breed: {petdata.breed}</p>
+              <p className="mb-3">Medical history: {petdata.medical_history}</p>
+              <h4 className="mb-3">Appointments:</h4>
+              {appointments.length > 0 ? (
+                appointments.map((appointment) => (
+                  <div className="card-appointment" key={appointment.id}>
+                    <div className="card-body">
+                      <h5 className="card-title">{appointment.appointment_reason}</h5>
+                      <p className="card-text">{appointment.notes}</p>
+                      <p className="card-text">Starts at: {appointment.start_time}</p>
+                      <p className="card-text">Ends at: {appointment.end_time}</p>
+                      <button className="btn-appointment" onClick={() => handleDelete(appointment.id)}>
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p>No appointments yet.</p>
+              )}
+              <div className="text-center">
+                <Link to="/petlist" className="btn-back">
+                  Back to Pets
+                </Link>
+                {/* <AddAppointment
+                  petId={petdata.id}
+                  setAppointments={setAppointments}
+                  appointments={appointments}
+                  users={users}
+                /> */}
               </div>
             </>
           ) : (
@@ -109,4 +94,5 @@ function PetDetails() {
     </div>
   );
 }
+
 export default PetDetails;

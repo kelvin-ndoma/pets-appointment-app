@@ -38,15 +38,15 @@ function PostPet() {
   };
 
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="pet-container">
       <form className="container" onSubmit={handlesubmit}>
-        <div className="card p-3">
-          <div className="card=title">
+        <div className="cards">
+          <div className="card-title">
             <h2>Add a Pet</h2>
           </div>
           <div className="card-body">
             <div className="row">
-              <div className="col-lg-12">
+              <div className="columns">
                 <div className="form-group">
                   <label>Name</label>
                   <input
@@ -61,7 +61,7 @@ function PostPet() {
                 </div>
               </div>
 
-              <div className="col-lg-12">
+              <div className="colums">
                 <div className="form-group">
                   <label> Description</label>
                   <textarea
@@ -71,7 +71,7 @@ function PostPet() {
                   ></textarea>
                 </div>
               </div>
-              <div className="col-lg-12">
+              <div className="colums">
                 <div className="form-group">
                   <label> breed</label>
                   <textarea
@@ -81,7 +81,7 @@ function PostPet() {
                   ></textarea>
                 </div>
               </div>
-              <div className="col-lg-12">
+              <div className="colums">
                 <div className="form-group">
                   <label> image</label>
                   <textarea
@@ -92,7 +92,7 @@ function PostPet() {
                 </div>
               </div>
 
-              <div className="col-lg-12">
+              <div className="colums">
                 <div className="form-group">
                   <label> age</label>
                   <textarea
@@ -103,7 +103,7 @@ function PostPet() {
                 </div>
               </div>
 
-              <div className="col-lg-12">
+              <div className="colums">
                 <div className="form-group">
                   <label>medical_history</label>
                   <input
@@ -114,16 +114,16 @@ function PostPet() {
                   ></input>
                 </div>
               </div>
-              <div className="col-lg-12">
+              <div className="columns">
                 <div className="form-group">
                   <button
                     to="/petlist"
-                    className="btn btn-success"
+                    className="btns"
                     type="submit"
                   >
                     Save
                   </button>
-                  <Link to="/petlist" className="btn btn-danger">
+                  <Link to="/petlist" className="btns">
                     Back
                   </Link>
                 </div>

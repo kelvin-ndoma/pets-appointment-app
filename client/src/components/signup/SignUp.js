@@ -24,8 +24,10 @@ function Signup({ setUser }) {
       }),
     }).then((r) => {
       if (r.ok) {
-        r.json().then((user) => setUser(user));
-        navigate("/petpage");
+        r.json().then((user) => {
+          setUsername(user);
+          navigate("/login"); // Redirect to login page after successful signup
+        });
       }
     });
   }

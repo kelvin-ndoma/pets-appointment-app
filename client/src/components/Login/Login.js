@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 function Login({ setUser }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch("/login", {
@@ -17,13 +15,12 @@ function Login({ setUser }) {
     }).then((r) => {
       if (r.ok) {
         r.json().then((user) => {
-          setUser(user);
-          navigate("/yourpet"); // updated route
+          setUsername(user);
+          navigate("/petlist"); // updated route
         });
       }
     });
   }
-
   return (
     <div
       style={{
@@ -92,5 +89,4 @@ function Login({ setUser }) {
     </div>
   );
 }
-
 export default Login;

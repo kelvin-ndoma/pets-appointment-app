@@ -1,22 +1,17 @@
-
-
 import "./App.css";
-
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Home from "./Home/Home";
 import PetList from "./Main/PetList";
 import PostPet from "./PostPet/PostPet";
-import PetDetails from "./BlogDetails";
+import PetDetails from "./PetDetails";
 import Edit from "./Edit"
 import Login from "./Login/Login"
 import SignUp from "./signup/SignUp"
-
 function App() {
   const navStyle = {
     display: "inline-block",
     margin: "0 20px",
   };
-
   const navHoverStyle = {
     color: "white",
     backgroundColor: "black",
@@ -24,7 +19,6 @@ function App() {
     borderRadius: "5px",
     transition: "all 0.3s ease",
   };
-
   return (
     <div className="App">
       <BrowserRouter>
@@ -61,9 +55,9 @@ function App() {
             <Route path="/" element={<Home />} />
           
             <Route path="/petlist" element={<PetList />} />
-            <Route path="/pet/post" element={<PostPet />} />
-            <Route path="/details" element={<PetDetails />} />
-            <Route path="/pet/:empid" element={<Edit />} />
+            <Route path="/pets" element={<PostPet />} />
+            <Route path="/pets/details/:empid" element={<PetDetails />} />
+            <Route path="/pets/edit/:empid" element={<Edit />} />
             <Route path="/login" element={<Login/>} />
             <Route path="/signup" element = {<SignUp/>}/>
           </Routes>
@@ -73,8 +67,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
-
-
-

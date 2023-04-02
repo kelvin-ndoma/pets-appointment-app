@@ -43,7 +43,7 @@ function Edit() {
     })
       .then((res) => {
         alert("Saved Successfully");
-        navigate("/bloglist");
+        navigate("/petlist");
       })
       .catch((err) => {
         console.log(err.message);
@@ -61,15 +61,13 @@ function Edit() {
               <div className="col-lg-12">
                 <div className="form-group">
                   <label>Name</label>
-                  <input
+                  <textarea
                     required
                     value={name}
                     onChange={(e) => namechange(e.target.value)}
                     className="form-control"
-                  ></input>
-                  {name.length == 0 && (
-                    <span className="text-danger">Enter pets Title!!</span>
-                  )}
+                  ></textarea>
+                 
                 </div>
               </div>
 

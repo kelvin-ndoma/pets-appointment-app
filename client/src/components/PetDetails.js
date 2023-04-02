@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import AddAppointment from "./AddAppointment";
+
 
 function PetDetails() {
   const { empid } = useParams();
   const [petdata, setPetData] = useState({});
   const [appointments, setAppointments] = useState([]);
   const [users, setUsers] = useState([]);
-
   useEffect(() => {
     fetch(`/pets/${empid}`)
       .then((res) => res.json())
@@ -18,7 +17,6 @@ function PetDetails() {
       .catch((err) => {
         console.log(err.message);
       });
-
     fetch(`/appointments`)
       .then((res) => res.json())
       .then((resp) => {
@@ -28,14 +26,13 @@ function PetDetails() {
         console.log(err.message);
       });
   }, [empid]);
-
   const handleDelete = (id) => {
     fetch(`/appointments/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((resp) => {
-        setAppointments(
+        setAppointments(resp)(
           appointments.filter((appointment) => appointment.id !== id)
         );
       })
@@ -43,7 +40,6 @@ function PetDetails() {
         console.log(err.message);
       });
   };
-
   return (
     <div className="container mt-5">
       <div className="card p-3">
@@ -52,10 +48,10 @@ function PetDetails() {
         </div>
         <div className="card-body">
           {Object.keys(petdata).length > 0 ? (
-            <>
+            <> 
+             <img src={petdata.image} />
               <h3>name: {petdata.name}</h3>
               <h4>Description: {petdata.description}</h4>
-              <p>image: {petdata.image}</p>
               <p>age: {petdata.age}</p>
               <p>breed: {petdata.breed}</p>
               <p>medical_history: {petdata.medical_history}</p>
@@ -93,12 +89,12 @@ function PetDetails() {
                   <p>No appointment yet.</p>
                 )}
                 <div className="text-center">
-                  <AddAppointment
+                  {/* <AddAppointment
                     petId={petdata.id}
                     setAppointments={setAppointments}
                     appointments={appointments}
                     users={users}
-                  />
+                  /> */}
                   <Link to="/petlist" className="btn btn-primary">
                     Back to pets
                   </Link>
@@ -113,5 +109,4 @@ function PetDetails() {
     </div>
   );
 }
-
 export default PetDetails;

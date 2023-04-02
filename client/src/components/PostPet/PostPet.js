@@ -20,7 +20,7 @@ function PostPet() {
 
     const petdata = {name, description,  image, medical_history, age, breed};
 
-    fetch("/pet/post/", {
+    fetch("/pets", {
       method: "POST",
       headers: { "content-type": "application/json" },
       body: JSON.stringify(petdata),

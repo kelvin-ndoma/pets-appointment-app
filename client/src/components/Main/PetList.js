@@ -46,7 +46,7 @@ function PetList() {
       <div className="card">
         <div className="card-title">
           <h2>Pets List</h2>
-          <Link to="/pet/post/" className="cta-button">
+          <Link to="/pets" className="cta-button">
             Add a pet
           </Link>
         </div>
@@ -57,10 +57,10 @@ function PetList() {
                 <div className="col" key={pet.id}>
                   <div className="card h-100" style={{ backgroundColor: "#FBA633" }}>
                     <div className="card-body">
-                      <h5 className="card-title">{pet.image}</h5>
+                      <img src={pet.image} />
                       <p className="card-text">{pet.name}</p>
                       <p className="card-text">Medical History: {pet.medical_history}</p>
-                      <p className="card-text">Age: {pet.medical_history}</p>
+                      <p className="card-text">Age: {pet.age}</p>
                       <h1 className="card-body">description: {pet.description}</h1>
                       <div className="d-flex justify-content-center">
                         <div className="btn-group">

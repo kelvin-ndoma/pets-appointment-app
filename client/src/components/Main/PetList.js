@@ -1,5 +1,5 @@
 
-import "./Main.css"
+import "./Main.css";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -7,15 +7,15 @@ function PetList() {
   const [petdata, petdatachange] = useState(null);
   const navigate = useNavigate();
 
-  const LoadEdit = (id) => {
+  const loadEdit = (id) => {
     navigate("/pets/edit/" + id);
   };
 
-  const LoadDetail = (id) => {
+  const loadDetail = (id) => {
     navigate("/pets/details/" + id);
   };
 
-  const Removefunction = (id) => {
+  const removeFunction = (id) => {
     if (window.confirm("Confirm You Want To Delete Pet?")) {
       fetch("/pets/" + id, {
         method: "DELETE",
@@ -29,7 +29,8 @@ function PetList() {
         });
     }
   };
-  //fetching data to show all the pets
+  
+  // Fetching data to show all the pets
   useEffect(() => {
     fetch("/pets")
       .then((res) => res.json())
@@ -55,39 +56,39 @@ function PetList() {
             {petdata &&
               petdata.map((pet) => (
                 <div className="col" key={pet.id}>
-                  <div className="card h-100" >
-                    <div className="cardssss">
-                      <img src={pet.image} />
-                      <p className="card-text">{pet.name}</p>
+                  <div className="card h-100">
+                    <img
+                      src={pet.image}
+                      className="card-img-top pet-image"
+                      alt={pet.name}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{pet.name}</h5>
                       <p className="card-text">Medical History: {pet.medical_history}</p>
                       <p className="card-text">Age: {pet.age}</p>
-                      <p className="card-body">Description: {pet.description}</p>
+                      <p className="card-text">Description: {pet.description}</p>
+                    </div>
+                    <div className="card-footer">
                       <div className="d-flex justify-content-center">
-                        <div className="btn-group">
+                        <div className="btn-container">
                           <button
-                            onClick={() => {
-                              LoadDetail(pet.id);
-                            }}
+                            onClick={() => loadDetail(pet.id)}
                             type="button"
-                            className="btn"
+                            className="btns"
                           >
                             Details
                           </button>
                           <button
-                            onClick={() => {
-                              LoadEdit(pet.id);
-                            }}
+                            onClick={() => loadEdit(pet.id)}
                             type="button"
-                            className="btn"
+                            className="btns"
                           >
                             Edit
                           </button>
                           <button
-                            onClick={() => {
-                              Removefunction(pet.id);
-                            }}
+                            onClick={() => removeFunction(pet.id)}
                             type="button"
-                            className="btn"
+                            className="btns"
                           >
                             Delete
                           </button>

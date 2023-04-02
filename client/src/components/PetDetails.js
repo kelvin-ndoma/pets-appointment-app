@@ -50,7 +50,7 @@ function PetDetails() {
         </div>
         <div className="card-body">
           {Object.keys(petdata).length > 0 ? (
-            <>
+            <> <h1>Welcome, see {petdata.name}'s Appointments below!</h1>
               <img src={petdata.image} alt={petdata.name} className="body-rounded" />
               <h3 className="mb-3">Name: {petdata.name}</h3>
               <p className="mb-3">Age: {petdata.age}</p>
@@ -61,8 +61,8 @@ function PetDetails() {
                 appointments.map((appointment) => (
                   <div className="card-appointment" key={appointment.id}>
                     <div className="card-body">
-                      <h5 className="card-title">{appointment.appointment_reason}</h5>
-                      <p className="card-text">{appointment.notes}</p>
+                      <h5 className="card-title">Reason:{appointment.appointment_reason}</h5>
+                      <p className="card-text">Notes:{appointment.notes}</p>
                       <p className="card-text">Starts at: {appointment.start_time}</p>
                       <p className="card-text">Ends at: {appointment.end_time}</p>
                       <button className="btn-appointment" onClick={() => handleDelete(appointment.id)}>

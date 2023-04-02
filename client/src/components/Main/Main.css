@@ -36,4 +36,10 @@
   .btns:last-child {
     margin-right: 0;
   }
+  .pet-image {
+    height: 200px;
+    object-fit: contain;
+    
+  }
+  
   

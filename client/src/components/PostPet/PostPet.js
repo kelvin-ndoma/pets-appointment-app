@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "./update.css"
 
 function PostPet() {
   // Declare states for each input field
@@ -56,7 +57,7 @@ function PostPet() {
                     className="form-control"
                   ></input>
                   {name.length == 0 && (
-                    <span className="text-danger">Enter pets Title!!</span>
+                    <span className="text-danger">Enter pets Name!!</span>
                   )}
                 </div>
               </div>
@@ -116,16 +117,13 @@ function PostPet() {
               </div>
               <div className="columns">
                 <div className="form-group">
-                  <button
-                    to="/petlist"
-                    className="btns"
-                    type="submit"
-                  >
-                    Save
-                  </button>
-                  <Link to="/petlist" className="btns">
-                    Back
-                  </Link>
+                   <button className="btnsss" type="submit">
+                      Save
+                    </button>
+                    <Link to="/petlist" className="btnd ">
+                      Back
+                    </Link>
+
                 </div>
               </div>
             </div>

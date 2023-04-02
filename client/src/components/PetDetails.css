@@ -49,6 +49,10 @@
     padding-top: 50px;
     text-align: center;
   }
+  #welcome{
+    font-family: monospace;
+    text-decoration: underline;
+  }
   
   /* Button styles */
   .btn-back {

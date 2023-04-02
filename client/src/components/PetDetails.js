@@ -56,7 +56,7 @@ function PetDetails() {
               <p className="mb-3">Age: {petdata.age}</p>
               <p className="mb-3">Breed: {petdata.breed}</p>
               <p className="mb-3">Medical history: {petdata.medical_history}</p>
-              <h4 className="mb-3">Appointments:</h4>
+              <h4 className="mb-3">See Appointments</h4>
               {appointments.length > 0 ? (
                 appointments.map((appointment) => (
                   <div className="card-appointment" key={appointment.id}>

@@ -14,11 +14,11 @@ const Home = () => {
         <br />
         <br />
         <a
-          className="btn btn-outline-primary btn-lg"
+          className="btn-book"
           href="/login"
           role="button"
         >
-          Book your appointment
+          Book appointment
         </a>
       </div>
     </section>

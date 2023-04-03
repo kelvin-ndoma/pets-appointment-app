@@ -112,7 +112,7 @@ import "./Main.css";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-function PetList() {
+function PetList({user}) {
   const [petdata, petdatachange] = useState(null);
   const navigate = useNavigate();
 

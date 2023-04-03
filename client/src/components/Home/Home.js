@@ -18,7 +18,7 @@ const Home = () => {
           href="/login"
           role="button"
         >
-          Book appointment
+          See appointments
         </a>
       </div>
     </section>

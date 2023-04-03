@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-// import AddAppointment from "./AddAppointment";
+import AddAppointment from "./AddAppointment";
 import "./PetDetails.css"
 
 
@@ -28,14 +28,14 @@ function PetDetails() {
         console.log(err.message);
       });
   }, [empid]);
-  const handleDelete = (id) => {
-    fetch(`/appointments/${id}`, {
+  const handleDelete = (user_id) => {
+    fetch(`/appointments/${user_id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
       .then((resp) => {
         setAppointments(resp)(
-          appointments.filter((appointment) => appointment.id !== id)
+          appointments.filter((appointment) => appointment.id !== user_id)
         );
       })
       .catch((err) => {
@@ -75,15 +75,15 @@ function PetDetails() {
                 <p>No appointments yet.</p>
               )}
               <div className="text-center">
-                <Link to="/petlist" className="btn-back">
+                <Link to="/petlist" className="btns-back">
                   Back to Pets
                 </Link>
-                {/* <AddAppointment
+                <AddAppointment
                   petId={petdata.id}
                   setAppointments={setAppointments}
                   appointments={appointments}
                   users={users}
-                /> */}
+                />
               </div>
             </>
           ) : (

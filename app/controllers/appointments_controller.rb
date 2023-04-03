@@ -43,6 +43,8 @@
 # end
 
 class AppointmentsController < ApplicationController
+  before_action :set_user, only: [:create, :update, :destroy]
+  
   def index
     appointments = Appointment.all
     render json: appointments
@@ -54,8 +56,7 @@ class AppointmentsController < ApplicationController
   end
 
   def create
-    appointment = Appointment.new(appointment_params)
-    appointment.user = User.find(params[:user_id])
+    appointment = @user.appointments.build(appointment_params)
     
     if appointment.save
       render json: appointment, status: :created
@@ -81,9 +82,13 @@ class AppointmentsController < ApplicationController
   
   private
   
-  def appointment_params
-    params.require(:appointment).permit(:appointment_reason, :notes, :start_time, :end_time, :pet_id)
+  def set_user
+    @user = User.find(params[:id])
   end
   
+  def appointment_params
+    params.require(:appointment).permit(:appointment_reason, :notes, :start_time, :end_time)
+  end
 end
+
 

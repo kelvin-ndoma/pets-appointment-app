@@ -17,12 +17,12 @@ function AddAppointment(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`/appointments`, {
+    fetch(`/users/:user_id/pets/:pet_id/appointments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...appointment, pet_id: props.petId }),
+      body: JSON.stringify(appointment),
     })
       .then((res) => res.json())
       .then((resp) => {
@@ -38,6 +38,7 @@ function AddAppointment(props) {
         console.log(err.message);
       });
   };
+  
 
   return (
     <div className="card my-3">

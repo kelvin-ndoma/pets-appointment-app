@@ -5,12 +5,13 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   resources :appointments
   resources :users do
-    resources :pets, only: [:index]
+    resources :pets, only: [:index] do
+      resources :appointments, only: [:create]
+    end
   end
   resources :user_pets
   resources :user_appointments
   resources :pets
-  
-  get "/pets_without_appointments", to: "pets#index_without_appointments"
 end
+
 

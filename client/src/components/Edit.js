@@ -34,7 +34,7 @@ function Edit() {
   const handlesubmit = (e) => {
     e.preventDefault();
 
-    const petdata = { id, name, description, image, breed, description,age,medical_history };
+    const petdata = { id, name, image, breed, description,age,medical_history };
 
     fetch(`/pets/${empid}`, {
       method: "PATCH",
@@ -50,7 +50,7 @@ function Edit() {
       });
   };
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
+    <div className="d-flex justify-content-center align-items-center vh-60">
       <form className="container" onSubmit={handlesubmit}>
         <div className="card p-3">
           <div className="card=title">

@@ -1,6 +1,8 @@
-Pets Appointments App
+ Phase 4
+ 
+ ###Pets Appointments App
 
-By:Kelvin Ndoma
+  By:Kelvin Ndoma
  
  
  
@@ -9,7 +11,11 @@ By:Kelvin Ndoma
  The app uses User authentication for users to login, sign user.
  
  To run this app, flork this repo, and run  `#bundle Install`
-  #`Technologies`
+ 
+ 
+  ###`Technologies`
+  
+  
  The App uses technologies such as React js and css/ bootstrap for styling and Ruby on rails for the backend
  
 
@@ -23,6 +29,10 @@ By:Kelvin Ndoma
 
   make sure to run all migrations
 
+
+ MIT License
+
+ Copyright (c) 2023 kelvin Ndoma
 
 
 

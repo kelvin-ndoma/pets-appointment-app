@@ -1,24 +1,28 @@
-# README
+Pets Appointments App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+By:Kelvin Ndoma
+ 
+ 
+ 
+ This a simple application where users can check their pets appointments
+ 
+ The app uses User authentication for users to login, sign user.
+ 
+ To run this app, flork this repo, and run  `#bundle Install`
+  #`Technologies`
+ The App uses technologies such as React js and css/ bootstrap for styling and Ruby on rails for the backend
+ 
 
-Things you may want to cover:
+* Ruby version 2.7.6
 
-* Ruby version
 
-* System dependencies
 
 * Configuration
 
-* Database creation
+* Database creation- sqlite3
 
-* Database initialization
+  make sure to run all migrations
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...

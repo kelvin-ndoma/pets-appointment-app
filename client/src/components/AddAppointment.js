@@ -1,44 +1,54 @@
 import React, { useState } from "react";
 
-function AddAppointment(props) {
-  const [appointment, setAppointment] = useState({
+function AddAppointment({ user,petdata }) {
+  const [appointmentData, setAppointmentData] = useState({
     appointment_reason: "",
     notes: "",
     start_time: "",
     end_time: "",
+    pet_id: "",
   });
 
   const handleChange = (event) => {
-    setAppointment({
-      ...appointment,
+    setAppointmentData({
+      ...appointmentData,
       [event.target.name]: event.target.value,
     });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    fetch(`/users/:user_id/pets/:pet_id/appointments`, {
+
+    if (!appointmentData.pet_id) {
+      alert("Please select a pet for the appointment.");
+      return;
+    }
+
+    fetch(`/appointments`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(appointment),
+      body: JSON.stringify({
+        ...appointmentData,
+        user_id: user.id,
+      }),
     })
       .then((res) => res.json())
       .then((resp) => {
-        props.setAppointments([...props.appointments, resp]);
-        setAppointment({
+        console.log(resp);
+        setAppointmentData({
           appointment_reason: "",
           notes: "",
           start_time: "",
           end_time: "",
+          pet_id: "",
         });
       })
       .catch((err) => {
         console.log(err.message);
       });
   };
-  
 
   return (
     <div className="card my-3">
@@ -51,7 +61,7 @@ function AddAppointment(props) {
               type="text"
               className="form-control"
               name="appointment_reason"
-              value={appointment.appointment_reason}
+              value={appointmentData.appointment_reason}
               onChange={handleChange}
               required
             />
@@ -61,7 +71,7 @@ function AddAppointment(props) {
             <textarea
               className="form-control"
               name="notes"
-              value={appointment.notes}
+              value={appointmentData.notes}
               onChange={handleChange}
             ></textarea>
           </div>
@@ -71,7 +81,7 @@ function AddAppointment(props) {
               type="datetime-local"
               className="form-control"
               name="start_time"
-              value={appointment.start_time}
+              value={appointmentData.start_time}
               onChange={handleChange}
               required
             />
@@ -82,10 +92,28 @@ function AddAppointment(props) {
               type="datetime-local"
               className="form-control"
               name="end_time"
-              value={appointment.end_time}
+              value={appointmentData.end_time}
               onChange={handleChange}
               required
             />
+          </div>
+          <div className="form-group">
+            <label>Pet</label>
+            <select
+              className="form-control"
+              name="pet_id"
+              value={appointmentData.pet_id}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select a pet</option>
+  {petdata && petdata.map((pet) => (
+    <option key={pet.id} value={pet.id}>
+      {pet.name}
+    </option>
+  ))}
+            
+            </select>
           </div>
           <button type="submit" className="btn btn-primary">
             Add

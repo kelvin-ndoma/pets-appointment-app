@@ -4,7 +4,7 @@ import AddAppointment from "./AddAppointment";
 import "./PetDetails.css"
 
 
-function PetDetails() {
+function PetDetails({user}) {
   const { empid } = useParams();
   const [petdata, setPetData] = useState({});
   const [appointments, setAppointments] = useState([]);
@@ -83,6 +83,7 @@ function PetDetails() {
                   setAppointments={setAppointments}
                   appointments={appointments}
                   users={users}
+                  user={user}
                 />
               </div>
             </>

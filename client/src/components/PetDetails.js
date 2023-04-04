@@ -79,12 +79,13 @@ function PetDetails({user}) {
                   Back to Pets
                 </Link>
                 <AddAppointment
-                  petId={petdata.id}
-                  setAppointments={setAppointments}
-                  appointments={appointments}
-                  users={users}
-                  user={user}
-                />
+                    empid={petdata.id}
+                    user={user}
+                    petdata={petdata}
+                    setAppointments={setAppointments}
+                    appointments={appointments}
+                    users={users}
+                  />
               </div>
             </>
           ) : (

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AddAppointment({ user,petdata }) {
+function AddAppointment({ user, empid, setAppointments, appointments }) {
   const [appointmentData, setAppointmentData] = useState({
     appointment_reason: "",
     notes: "",
@@ -44,6 +44,7 @@ function AddAppointment({ user,petdata }) {
           end_time: "",
           pet_id: "",
         });
+        setAppointments([...appointments, resp]);
       })
       .catch((err) => {
         console.log(err.message);
@@ -55,6 +56,19 @@ function AddAppointment({ user,petdata }) {
       <div className="card-body">
         <h5 className="card-title">Add Appointment</h5>
         <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Pet</label>
+            <select
+              className="form-control"
+              name="pet_id"
+              value={appointmentData.pet_id}
+              onChange={handleChange}
+              required
+            >
+              <option value="">Select a pet</option>
+              <option value={empid}>{empid}</option>
+            </select>
+          </div>
           <div className="form-group">
             <label>Reason</label>
             <input
@@ -73,7 +87,8 @@ function AddAppointment({ user,petdata }) {
               name="notes"
               value={appointmentData.notes}
               onChange={handleChange}
-            ></textarea>
+              required
+            />
           </div>
           <div className="form-group">
             <label>Start Time</label>
@@ -97,26 +112,8 @@ function AddAppointment({ user,petdata }) {
               required
             />
           </div>
-          <div className="form-group">
-            <label>Pet</label>
-            <select
-              className="form-control"
-              name="pet_id"
-              value={appointmentData.pet_id}
-              onChange={handleChange}
-              required
-            >
-              <option value="">Select a pet</option>
-  {petdata && petdata.map((pet) => (
-    <option key={pet.id} value={pet.id}>
-      {pet.name}
-    </option>
-  ))}
-            
-            </select>
-          </div>
           <button type="submit" className="btn btn-primary">
-            Add
+            Add Appointment
           </button>
         </form>
       </div>

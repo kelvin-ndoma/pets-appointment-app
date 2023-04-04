@@ -53,37 +53,34 @@ function App() {
           </Link>
           <div className="nav-links">
             {user ?
-               <PrivateRoute
-                  path="/petlist"
-                  component={PetList}
-                  user={user}
-                  setUser={setUser}
-                /> : null
-
+              <PrivateRoute
+                path="/petlist"
+                component={PetList}
+                user={user}
+                setUser={setUser}
+              />
+              : null
             }
-              <>
-               
-                {user ? (
-                  <button variant="outline" onClick={handleLogoutClick}>
-                    Logout
-                  </button>
-                ) : (
-                  <Link
-                    to="/login"
-                    style={navStyle}
-                    activeStyle={navHoverStyle}
-                  >
-                    Login
-                  </Link>
-                )}
-             {
-               <Link to="/signup" style={navStyle} activeStyle={navHoverStyle}>
+            <>
+              {user ? (
+                <button variant="outline" onClick={handleLogoutClick}>
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  style={navStyle}
+                  activeStyle={navHoverStyle}
+                >
+                  Login
+                </Link>
+              )}
+              {!user ? (
+                <Link to="/signup" style={navStyle} activeStyle={navHoverStyle}>
                   SignUp
                 </Link>
-             }
-               
-              </>
-            
+              ) : null}
+            </>
           </div>
         </nav>
       </header>
